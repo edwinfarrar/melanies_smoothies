@@ -1,7 +1,15 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session #For SiS {Streamlit in Snowflake}
 from snowflake.snowpark.functions import col
+
+#session = get_active_session()  #For SIS {Streamlit in Snowflake}
+
+#For SniS {Streamlit NOT in Snowflake}
+#-------------------------------------------------
+cnx = st.connection("snowflake")
+session = cnx.session()
+#-------------------------------------------------
 
 # Write directly to the app
 st.markdown("<h1 style='white-space: nowrap;'>🥤 Customize Your Smoothie! 🥤</h1>", unsafe_allow_html=True)
@@ -15,7 +23,7 @@ name_on_order = st.text_input('Name on Smoothie', '')
 st.write('The name on the Smootthie will be:', name_on_order)
 
 
-session = get_active_session()
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
 
