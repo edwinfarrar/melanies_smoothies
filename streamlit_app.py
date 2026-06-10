@@ -3,7 +3,21 @@ import streamlit as st
 #from snowflake.snowpark.context import get_active_session #For SiS {Streamlit in Snowflake}
 from snowflake.snowpark.functions import col
 
-#session = get_active_session()  #For SIS {Streamlit in Snowflake}
+#test the secret.toml
+#-------------------------------------------------
+st.write("DB username:", st.secrets["db_username"])
+st.write("DB password:", st.secrets["db_password"])
+# And the root-level secrets are also accessible as environment variables:
+import os
+st.write(
+    "Has environment variables been set:",
+    os.environ["db_username"] == st.secrets["db_username"],
+)
+#-------------------------------------------------
+
+
+#For SIS {Streamlit in Snowflake}
+#session = get_active_session() 
 
 #For SniS {Streamlit NOT in Snowflake}
 #-------------------------------------------------
