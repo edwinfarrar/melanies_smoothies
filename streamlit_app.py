@@ -6,8 +6,8 @@ from snowflake.snowpark.functions import col
 #test the secret.toml
 #-------------------------------------------------
 st.write("Secret TOML -> ", st.secrets)
-#st.write("DB username:", st.secrets["user"])
-#st.write("DB password:", st.secrets["password"])
+st.write("DB username:", st.secrets["connections.snowflake.user"])
+st.write("DB password:", st.secrets["connections.snowflake.password"])
 # And the root-level secrets are also accessible as environment variables:
 import os
 st.write(
