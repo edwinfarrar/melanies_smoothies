@@ -8,7 +8,7 @@ from snowflake.snowpark.functions import col
 #test the secret.toml
 #-------------------------------------------------
 #st.write("Secret TOML -> ", st.secrets)
-st.write("DB username:", st.secrets.connections.snowflake.user)
+#st.write("DB username:", st.secrets.connections.snowflake.user)
 #st.write("DB password:", st.secrets.connections.snowflake.password)
 #-------------------------------------------------
 
@@ -42,7 +42,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 #Convert the Snowpark Datafarm to a Pands Dataframe so we can use the LOC function.
 pd_df = my_dataframe.to_pandas()
 st.dataframe(pd_df)
-st.stop()
+#st.stop()
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:'
