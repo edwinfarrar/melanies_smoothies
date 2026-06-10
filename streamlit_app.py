@@ -11,8 +11,9 @@ st.write("Secret TOML -> ", st.secrets)
 # And the root-level secrets are also accessible as environment variables:
 import os
 st.write(
-    "Has environment variables been set:",
-    os.environ["user"] == st.secrets["user"],
+    "Has environment variables been set: ",
+    os.environ["user"]
+#    == st.secrets["user"],
 )
 #-------------------------------------------------
 
